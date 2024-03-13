@@ -1,5 +1,6 @@
 import { Client, Events } from "discord.js";
 import { register } from "../../utils/register";
+import path from "path";
 
 export const type = Events.ClientReady
 
@@ -15,5 +16,10 @@ export const execute = async (client: Client) => {
       register(member.id, member.guild.id, member.user.username)
     });
   });
+
+  const avatar = path.join("avatar.gif")
+
+  client.user?.setAvatar(avatar)
+
   console.log("[INFO] BOT READY.");
 }
