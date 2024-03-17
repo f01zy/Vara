@@ -1,4 +1,4 @@
-import { Client, Events } from "discord.js";
+import { ActivityType, Client, Events } from "discord.js";
 import { register } from "../../utils/register";
 import path from "path";
 
@@ -17,9 +17,7 @@ export const execute = async (client: Client) => {
     });
   });
 
-  const avatar = path.join("avatar.gif")
-
-  client.user?.setAvatar(avatar)
+  client.user?.setActivity({ name: `${guilds} серверов`, type: ActivityType.Playing })
 
   console.log("[INFO] BOT READY.");
 }

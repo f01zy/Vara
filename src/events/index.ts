@@ -27,5 +27,5 @@ export const events = [
   voice_name,
   voice_limit,
   rating,
-  russian
+  russian,
 ]

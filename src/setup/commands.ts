@@ -1,6 +1,7 @@
-import { REST, Routes } from "discord.js";
+import { DataResolver, REST, Routes } from "discord.js";
 import { commands } from "../commands";
 import { config } from "../config"
+import path from "path";
 
 const commandsData = Object.values(commands).map((command) => command.data);
 
@@ -14,6 +15,10 @@ export const deployCommands = async () => {
         body: commandsData,
       }
     );
+
+    await rest.patch(Routes.user(), {
+      body: { banner: await DataResolver.resolveImage(path.join("banner.jpg")) },
+    });
 
     console.log("[INFO] SUCCESSFULLY RELOADED APPLICATION (/) COMMANDS.");
   } catch (error) {
