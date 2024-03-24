@@ -16,6 +16,7 @@ import * as ban from "./moderation/ban"
 import * as kick from "./moderation/kick"
 import * as clear from "./moderation/clear"
 import * as rank from "./rating/rank"
+import * as reload from "./owner/reload"
 
 export const commands = {
   ping,
@@ -35,5 +36,6 @@ export const commands = {
   add,
   delete_item,
   shop,
-  buy
+  buy,
+  reload
 }

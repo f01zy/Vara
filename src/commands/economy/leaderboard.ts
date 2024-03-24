@@ -20,15 +20,18 @@ export const setPage = async (interaction: CommandInteraction | ButtonInteractio
     pageMembers.push(members[i])
   }
 
-  const pageMembersFields: Array<IField> = pageMembers.map(el => {
-    const member = interaction.guild?.members.cache.get(el.discord_id)!
+  const pageMembersFields: Array<IField> = []
 
-    return {
+  for (let el of pageMembers) {
+    const member = interaction.guild?.members.cache.get(el.discord_id)!
+    if (!member) continue
+
+    pageMembersFields.push({
       name: member.displayName,
       value: `Balance: ${el.balance}\nBank: ${el.bank}`,
       inline: false
-    }
-  })
+    })
+  }
 
   const avatarURL = interaction.guild?.iconURL()!
 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc .",
+    "build": "rimraf ./build && tsc",
     "start": "node ./dist/index.js",
     "dev": "tsx watch ./src/index.ts"
   },
@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.11.25",
+    "rimraf": "^5.0.5",
     "tsx": "^4.7.1",
     "typescript": "^5.4.2"
   },
